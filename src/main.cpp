@@ -1,6 +1,13 @@
-#include <iostream>
+
+#include "Game.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+
+    Game game;
+    if (game.Initialize()) {
+        game.RunLoop();
+    }
+
+    game.Shutdown();
     return 0;
 }
