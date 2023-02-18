@@ -5,8 +5,8 @@
 #ifndef YAMC_GAME_H
 #define YAMC_GAME_H
 
-#include "GL/glew.h"
-#include "GLFW/glfw3.h"
+
+#include "Window.h"
 
 class Game {
 public:
@@ -20,17 +20,8 @@ private:
     void UpdateGame();
     void GenerateOutput();
 
-    bool mIsRunning = true;
-    bool mWandFullScreen = false;
-    unsigned int mWindowHeight = 768;
-    unsigned int mWindowWidth = 1024;
-
-    GLFWwindow *mWindow = NULL;
+    bool mIsRunning {false};
+    Window *window_ {NULL};
 };
-
-void onKeyCallback(GLFWwindow *window, int key, int scancode, int action, int mods);
-void onMouseButtonCallback(GLFWwindow *window, int button, int action, int mods);
-void onScrollCallback(GLFWwindow *window, double xdelty, double ydelta);
-
 
 #endif //YAMC_GAME_H

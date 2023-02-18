@@ -22,12 +22,14 @@ include_directories(deps/sqlite)
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 
 if(APPLE)
-    target_link_libraries(Yamc glfw
-            ${GLFW_LIBRARIES})
+    #target_link_libraries(Yamc OpenGL::GL)
+    target_link_libraries(Yamc "-framework Cocoa")
+    target_link_libraries(Yamc "-framework OpenGL")
+    target_link_libraries(Yamc "-framework IOKit")
+    target_link_libraries(Yamc glfw ${GLFW_LIBRARIES})
 endif()
 
 if(UNIX)
-    target_link_libraries(Yamc dl glfw
-            ${GLFW_LIBRARIES})
+    target_link_libraries(Yamc dl glfw ${GLFW_LIBRARIES})
 endif()
 
